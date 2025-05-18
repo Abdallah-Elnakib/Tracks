@@ -218,3 +218,45 @@
 # y = 15
 
 # y = 20
+
+# name = 'ahmed'
+
+# x = [1,6,9,5]
+
+# print(x[0] + x[1] + x[2])
+
+
+# x = [1,9,8,7,'abdallah',True,  [1,9,888,[2,9,[6,9,'ahmed'],7]]   ,1.5]
+
+# print(x[6][3][2][2])
+ 
+# x = [2,6,9]
+
+# x.append('abdallah')
+
+# print(x)
+
+# x = ['abaed', 'abdallah']
+
+# x = range(0,6)
+
+# print(x)
+
+# x.reverse
+# x.sort()
+
+# print(x)
+
+# print()
+# input()
+# int()
+# str()
+# float()
+# type()
+# x.append()
+# x.sort()
+# x.reverse()
+
+
+# var => str int bool float list dic tuble range
+

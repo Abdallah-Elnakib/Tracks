@@ -5,5 +5,11 @@
 # ------------------------------------------------------------------------------------------------------------------
 # Write a Python program that accepts an integer (n) and computes the value of n+nn+nnn.
 # Sample value of n is 5
-# Expected Result : 615
+# Expected Result : 615   
 # ------------------------------------------------------------------------------------------------------------------
+# Write a Python program to display the examination schedule. (extract the date from exam_st_date).
+# exam_st_date = (18, 5, 2025)
+# Sample Output: The examination will start from: 18 / 5 / 2025
+# ------------------------------------------------------------------------------------------------------------------
+
+
