@@ -213,11 +213,88 @@
 
 
 
-data = {
-    'name' : 'abdallah',
-    'age' : 27,
-    'phone' : 10265477
-}
+# data = {
+#     'name' : 'abdallah',
+#     'age' : 27,
+#     'phone' : 11111,
+# }
 
-print(data['name'])
+# print(data['name'])
+
+# data['phone'] = 147852
+
+# data['email'] = 'abdallah.elnakib@gmail.com'
+
+# print(data)
+
+
+# UserData = {}
+
+# username = input('Please enter Username : ')
+# age = int(input('Please enter Your Age : '))
+# phone = input('Please enter Your Phone : ')
+# email = input('Please enter Your email : ')
+# password = input('Please enter Your Password : ')
+
+
+# UserData['username'] = username
+# UserData['age'] = age
+# UserData['phone'] = phone
+# UserData['email'] = email
+# UserData['password'] = password
+
+# print(f'Hello {username} Your Age IS {age} And Your phone is {phone} :) ')
+
+# print('Hello', username, 'your age is', age)
+
+# print(f'Hello {username} your age is {age}')
+
+# print(UserData)
+
+# data = {
+#     'name' : 'abdallah',
+#     'age' : 27,
+#     'phone' : 11111,
+# }
+
+# print(data['name'])
+# print(data.get('name'))
+
+# x = data.keys()
+# y = data.values()
+# print(y)
+
+# data.pop('name')
+
+# print(data)
+
+# data = {
+#     'names' : ['abdallah','ahmed','ali'],
+#     'phones' : [147852,963228,9332],
+#     'emails' : ['abdallah.elnakib','ahmed.elnakib','ali.elnakib']
+# }
+
+# print(data['phones'][1])
+
+# data = {
+#     'abdallah' : {'name' : 'abdallah', "age" : 27, 'phone' : 147},
+#     'ahmed' : {'data' : {'username' : 'ahmed1',"password" : 'qwer', 
+#                          'email' : ['abdalahhaaaa','ahiuouo',[147852,96,3]]}, 
+#                "age" : 47, 'phone' : [147,9663,852]}
+# }
+
+# print(data['ahmed']['data']['email'][2][2])
+
+
+# x = [1,9,8,7,{'num1' : 1, 'num2':555555, 'numbers' : [1,9,8,7]}]
+
+# print(x[-1]['numbers'][2])
+
+
+data = {
+    'ahmed' : {'name' :'ahmed', 'age' : 27, 
+               'phone' : {'num1': [12587,36985,8], 
+                          'num2' : [1,8,933,[89,{'ed' : 1478, 
+                                                 "ed2" : [78569, 9631]}]]}}
+}
 
