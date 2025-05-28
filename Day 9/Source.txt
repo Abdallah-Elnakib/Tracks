@@ -1,0 +1,73 @@
+x = lambda a : a + 10
+print(x(5))
+
+
+x = lambda a, b : a * b
+print(x(5, 6))
+
+
+x = lambda a, b, c : a + b + c
+print(x(5, 6, 2))
+
+
+def myfunc(n):
+  return lambda a : a * n
+
+mydoubler = myfunc(2)
+
+print(mydoubler(11)
+
+
+def myfunc(n):
+  return lambda a : a * n
+
+mydoubler = myfunc(2)
+mytripler = myfunc(3)
+
+print(mydoubler(11))
+print(mytripler(11))
+
+
+ages = [5, 12, 17, 18, 24, 32]
+
+def myFunc(x):
+  if x < 18:
+    return False
+  else:
+    return True
+
+adults = filter(myFunc, ages)
+
+for x in adults:
+  print(x)
+
+
+
+def myfunc(a, b):
+  return a + b
+
+x = map(myfunc, ('apple', 'banana', 'cherry'), ('orange', 'lemon', 'pineapple'))
+
+print(x)
+
+#convert the map into a list, for readability:
+print(list(x))
+
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+evens = filter(lambda x: x % 2 == 0, numbers)
+print(list(evens))
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+https://www.w3schools.com/python/python_lambda.asp
+https://www.w3schools.com/python/ref_func_map.asp
+https://www.geeksforgeeks.org/python-map-function/
+https://www.datacamp.com/tutorial/python-lambda-functions
+https://www.geeksforgeeks.org/filter-in-python/
+https://www.programiz.com/python-programming/recursion
+
+
+
+
