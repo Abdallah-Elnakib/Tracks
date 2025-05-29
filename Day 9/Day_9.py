@@ -233,7 +233,7 @@ data = {
 
 
 
-# text = 'wwwwoooollllddddddddddddd' # -> wold
+text = 'wwwwoooollllddddddddddddd' # -> wold
 
 
 # def clearText(wold) :
@@ -251,3 +251,6 @@ data = {
 # print(clearText(text))
 
 
+def sumOfTwoNumbers(Number_1,Number_2):
+
+    return Number_1 + Number_2

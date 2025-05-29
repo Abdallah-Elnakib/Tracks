@@ -1,0 +1,75 @@
+f = open(r"D:\Tracks\Python 1\Day 10\Source.txt")
+print(f.read())
+
+
+f = open("D:\Tracks\Python 1\Day 10\myfile.txt", "x")
+
+
+
+
+
+with open("d:/Tracks/Python 1/Day 10/Source.txt", "w") as f:
+  f.write("Woops! I have deleted the content!")
+
+with open("d:/Tracks/Python 1/Day 10/Source.txt", "a") as f:
+  f.write("Woops! I have deleted the content!")
+
+
+
+
+
+import os 
+print(os.getcwd)
+
+
+import os
+os.remove("D:/Tracks/Python 1/Day 10/S.txt")
+
+import os 
+
+print(os.path.dirname(os.path.abspath(__file__)))
+print(os.path.abspath(__file__))
+
+
+import json
+
+with open("D:\Tracks\Python 1\Day 10\StudentData.json", "r") as file:
+    data = json.load(file)
+
+
+# print(data)
+# new_student = {"id": 3, "name": "Omar", "grade": 88}
+# data.append(new_student)
+
+# with open("D:\Tracks\Python 1\Day 10\StudentData.json", "w") as file:
+#     json.dump(data, file, indent=4)
+
+
+new_students = []
+for student in data:
+    if student["id"] != "2":
+        new_students.append(student)
+
+data = new_students
+
+with open("D:\Tracks\Python 1\Day 10\StudentData.json", "w") as file:
+    json.dump(data, file, indent=4)
+
+
+
+import json
+
+with open("D:\Tracks\Python 1\Day 10\StudentData.json", "r") as file:
+    data = json.load(file)
+
+
+
+new_students = []
+for student in data:
+    if student["id"] != 2:
+        new_students.append(student)
+
+data = new_students
+
+with open("D:\Tracks\Python 1\Day 10\StudentData.json", "w") as file:
+    json.dump(data, file, indent=4)Woops! I have deleted the content!
