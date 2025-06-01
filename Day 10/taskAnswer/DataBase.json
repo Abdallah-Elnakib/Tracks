@@ -1,0 +1,47 @@
+{
+    "products": [
+        {
+            "id": "1",
+            "name": "milk",
+            "price": 20,
+            "quantity": 100,
+            "Description": "Natural and fresh milk"
+        },
+        {
+            "id": "2",
+            "name": "bread",
+            "price": 5,
+            "quantity": 100,
+            "Description": "Healthy bread baked today"
+        },
+        {
+            "id": "3",
+            "name": "sugar",
+            "price": 30,
+            "quantity": 80,
+            "Description": "Sugar-free, preservative-free"
+        }
+    ],
+    "users": [
+        {
+            "username": "abdallah",
+            "password": "123456789",
+            "role": "admin"
+        },
+        {
+            "username": "ahmed",
+            "password": "123456789",
+            "role": "employee"
+        },
+        {
+            "username": "ali",
+            "password": "147852369",
+            "role": "admin"
+        },
+        {
+            "username": "mohamed",
+            "password": "123456789",
+            "role": "employee"
+        }
+    ]
+}

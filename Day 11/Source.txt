@@ -1,0 +1,119 @@
+try:
+  print(x)
+except:
+  print("An exception occurred")
+
+
+try:
+  print(x)
+except NameError:
+  print("Variable x is not defined")
+except:
+  print("Something else went wrong")
+
+
+try:
+  print("Hello")
+except:
+  print("Something went wrong")
+else:
+  print("Nothing went wrong")
+
+try:
+  print(x)
+except:
+  print("Something went wrong")
+finally:
+  print("The 'try except' is finished")
+
+
+from tkinter import *
+root = Tk()
+w = Label(root, text='GeeksForGeeks.org!')
+w.pack()
+root.mainloop()
+
+
+import tkinter as tk
+
+r = tk.Tk()
+r.title('Counting Seconds')
+button = tk.Button(r, text='Stop', width=25, command=r.destroy)
+button.pack()
+r.mainloop()
+
+
+from tkinter import *
+
+master = Tk()
+Label(master, text='First Name').grid(row=0)
+Label(master, text='Last Name').grid(row=1)
+e1 = Entry(master)
+e2 = Entry(master)
+e1.grid(row=0, column=1)
+e2.grid(row=1, column=1)
+mainloop(
+
+
+from tkinter import *
+
+root = Tk()
+menu = Menu(root)
+root.config(menu=menu)
+filemenu = Menu(menu)
+menu.add_cascade(label='File', menu=filemenu)
+filemenu.add_command(label='New')
+filemenu.add_command(label='Open...')
+filemenu.add_separator()
+filemenu.add_command(label='Exit', command=root.quit)
+helpmenu = Menu(menu)
+menu.add_cascade(label='Help', menu=helpmenu)
+helpmenu.add_command(label='About')
+mainloop()
+
+
+
+from tkinter import *
+
+master = Tk()
+w = Scale(master, from_=0, to=42)
+w.pack()
+w = Scale(master, from_=0, to=200, orient=HORIZONTAL)
+w.pack()
+mainloop()
+
+
+
+import tkinter as tk
+
+row = 0
+column = 0
+
+
+def entry(button):
+    print(button._name)
+    button.config(text="x")
+
+master = tk.Tk()
+master.title('X-O')
+
+for i in range(0,3):
+    for u in range(0,3):
+        button = tk.Button(master, text="", width=6, height=2, font="Helvetica 40")
+        button.config(command=lambda button=button: entry(button))
+        button.grid(row=row, column=column)
+        column += 1
+    row += 1
+    column = 0
+
+
+master.mainloop()
+
+
+
+
+
+https://www.geeksforgeeks.org/python-gui-tkinter/
+https://docs.python.org/3/library/tkinter.html
+https://docs.python.org/3/library/tk.html
+https://www.w3schools.com/python/python_try_except.asp
