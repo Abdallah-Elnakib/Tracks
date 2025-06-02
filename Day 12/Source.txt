@@ -1,0 +1,49 @@
+import tkinter as tk
+root = tk.Tk()
+root.title("")
+root.geometry("400x300")  
+var = tk.IntVar()
+check = tk.Checkbutton(root, text="موافق", variable=var)
+check.pack()
+root.mainloop()
+
+
+
+import tkinter as tk
+
+
+root = tk.Tk()
+root.title("")
+root.geometry("400x300")  
+
+choice = tk.StringVar()
+radio1 = tk.Radiobutton(root, text="1", variable=choice, value="1")
+radio2 = tk.Radiobutton(root, text="2", variable=choice, value="2")
+radio1.pack()
+radio2.pack()
+
+
+root.mainloop()
+
+
+
+
+import tkinter 
+
+root = tkinter.Tk()
+root.title("")
+root.geometry("400x300")
+
+from tkinter import filedialog
+
+file = filedialog.askopenfilename()
+print(file)
+
+
+root.mainloop()
+
+
+
+# لو عايز اجيب التكست بتاع زرار  -> button.cget('text')
+# Entry لو عايز اجيب التحست بتاع  -> Entry.get()
+# Text لو عايز اجيب التكست بتاع  -> Text.get("1.0", tk.END)
