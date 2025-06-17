@@ -25,8 +25,6 @@ def FavoriteBooks(user):
     for i in BookOFUser:
         print(i)
 
-
-
 def interFace(user):
     def addToFavorite(bookName):
         name = bookName.cget('text')
@@ -114,7 +112,6 @@ def interFace(user):
     Favorite.config(command= lambda : FavoriteBooks(user))
 
     home.mainloop()
-
 
 error_label = None
 def ViewError(text, container, color='red'):
