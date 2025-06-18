@@ -1,0 +1,29 @@
+import bcrypt
+password = '123456789'
+bytes = password.encode('utf-8')
+salt = bcrypt.gensalt()
+hash = bcrypt.hashpw(bytes, salt)
+userBytes = password.encode('utf-8')
+result = bcrypt.checkpw(userBytes, hash)
+print(result)
+
+
+
+import time
+start_time = time.time()
+for i in range(1000000):
+    print(i)
+end_time = time.time()
+print("Execution time:", end_time - start_time, "seconds")
+
+
+
+******************************************************************************
+
+
+https://www.geeksforgeeks.org/python/hashing-passwords-in-python-with-bcrypt/
+https://pynative.com/python-if-else-and-for-loop-exercise-with-solutions/
+
+
+
+
