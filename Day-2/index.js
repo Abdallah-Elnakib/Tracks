@@ -146,7 +146,7 @@
 
 // console.log('Object 1 : ',data_1,'Object 2 : ',data_2.name)
 
-let number_1 = 10
+// let number_1 = 10
 
 // if (number_1 === '10') {
 //     console.log('Number is greater than 10')
@@ -192,15 +192,15 @@ let number_1 = 10
     
 // }
 
-let x = 20;
-let y = 10;
+// let x = 20;
+// let y = 10;
 
-if (x === 10){
-    if (y == 20){
-        console.log('Yes X = 10 And Y = 20')
-    } else {
-        console.log('Yes X = 10 But Y is not equal 20')
-    }
-} else {
-    console.log('No X is not equal 10')
-}
+// if (x === 10){
+//     if (y == 20){
+//         console.log('Yes X = 10 And Y = 20')
+//     } else {
+//         console.log('Yes X = 10 But Y is not equal 20')
+//     }
+// } else {
+//     console.log('No X is not equal 10')
+// }
