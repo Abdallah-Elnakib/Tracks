@@ -1,16 +1,16 @@
 {
-  "name": "day-4",
+  "name": "day-6",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "dotenv": "^17.2.1",
     "readline": "^1.3.0"
   }
 }
