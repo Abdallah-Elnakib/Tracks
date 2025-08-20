@@ -1,0 +1,5 @@
+all => In case of success, everyone returns. In case of failure, 
+the first one to fail returns.
+
+any => You go back to the first one who succeeded or everyone failed
+
