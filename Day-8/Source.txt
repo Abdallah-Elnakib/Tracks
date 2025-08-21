@@ -1,0 +1,9 @@
+req = {
+
+  body : {}
+  Query: {}
+  params : {}
+
+}
+
+req.body['username] = 'abdallah';
