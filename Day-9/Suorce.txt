@@ -1,0 +1,71 @@
+app.all('*', (req, res) => {
+  res.status(404).send('404 - Page not found');
+});
+
+app.get('/users/:userId/books/:bookId', (req, res) => {
+  // Access parameters using req.params
+  res.send(`User ID: ${req.params.userId}, Book ID: ${req.params.bookId}`);
+});
+
+
+let url = require('url');
+let adr = 'http://localhost:8080/default.htm?year=2017&month=february';
+let q = url.parse(adr, true);
+
+console.log(q.host);
+console.log(q.pathname);
+console.log(q.search);
+
+let qdata = q.query;
+console.log(qdata.month); 
+
+
+
+const fs = require('fs');
+
+// Read file asynchronously with callback
+fs.readFile('myfile.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+  console.log('File content:', data);
+});
+
+// For binary data (like images), omit the encoding
+fs.readFile('image.png', (err, data) => {
+  if (err) throw err;
+  // data is a Buffer containing the file content
+  console.log('Image size:', data.length, 'bytes');
+});
+
+
+const fs = require('fs').promises;
+
+async function writeFileExample() {
+  try {
+    // Write text to a file
+    await fs.writeFile('myfile.txt', 'Hello, World!', 'utf8');
+
+    // Write JSON data
+    const data = { name: 'John', age: 30, city: 'New York' };
+    await fs.writeFile('data.json', JSON.stringify(data, null, 2), 'utf8');
+
+    console.log('Files created successfully');
+  } catch (err) {
+    console.error('Error writing files:', err);
+  }
+}
+
+writeFileExample();
+
+
+install npm ejs
+create file views and public
+
+views =>   html files (index.ejs)
+public =>  css and js files
+
+
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, '/views'))
