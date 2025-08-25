@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= username %></title>
+</head>
+<body>
+    <%- include('./partials/header')  %>
+    <h1>Name : <%=username  %></h1>
+    <h1>age : <%=age  %></h1>
+    <h1>phone : <%=phone  %></h1>
+    <% if (role == 'admin') {%>
+        <p>Track 1 : 3000</p>
+        <p>Track 2 : 5000</p>   
+        <p>Track 3 : 10000</p>
+        <p>Total  : 18000</p>
+    <% } %>
+</body>
+</html>
