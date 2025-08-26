@@ -1,5 +1,6 @@
 const {usersData} = require('../models/users');
 const bcrypt = require('bcrypt');
+const {tokenData} =require('../models/tokens')
 
 const login = async(req,res) => {
     const {username , password} = req.body;
@@ -15,7 +16,10 @@ const login = async(req,res) => {
     if (!comparePassword) {
         return res.status(400).json({message : "Invalid password"})
     }
-
+    const addToken = new tokenData({
+        username : username
+    })
+    await addToken.save()
     return res.json({message : 'login done'})
 
 }
