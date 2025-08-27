@@ -1,0 +1,52 @@
+CRUD Operations :
+
+Create → Model.create(), new Model().save().
+Read → find(), findOne(), findById().
+Update → updateOne(), findByIdAndUpdate().
+Delete → deleteOne(), findByIdAndDelete().
+
+
+**************************************************************
+
+
+Query Helpers
+
+Query object  find().
+select, sort, limit, skip.
+$gt, $lt, $in, $or.
+
+const result = await User.find({ age: { $gt: 18 } })
+  .select("name age")  // يرجع الحقول دي بس
+  .sort({ age: -1 })   // ترتيب تنازلي بالعمر
+  .limit(5)             
+  .skip(2); 
+
+
+$gt (Greater Than = أكبر من)
+عايزين نجيب كل اللي عمرهم أكبر من 25
+
+$lt (Less Than = أصغر من)
+عايزين نجيب اللي عمرهم أصغر من 30
+
+
+$in (في قائمة معينة)
+عايزين نجيب اللي الـ role بتاعهم يا إما admin يا إما moderator
+
+
+$or (شرط أو)
+عايزين نجيب اللي عمرهم أقل من 22 أو الـ role بتاعهم admin
+**************************************************************
+
+
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  age: { type: Number, min: 18 },
+  email: { type: String, unique: true, required: true },
+  role: { type: String, enum: ["user", "admin"], default: "user" },
+  createdAt: { type: Date, default: Date.now }
+});
+
+
+**************************************************************
+
+
