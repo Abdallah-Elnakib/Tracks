@@ -19,3 +19,9 @@ mongoose.connection.once('connected' ,()=>{
     console.log("MongoDB connected..............");
     app.listen(process.env.PORT,()=>console.log('Server Runing...........'))
 })
+
+mongoose.connection.on('error', (err)=>{
+    console.log(err);
+})
+
+module.exports = {app}
