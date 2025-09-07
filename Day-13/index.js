@@ -10,6 +10,15 @@ app.set('view engine' , 'ejs')
 app.set('views', path.join(__dirname, '/views'))
 app.use(express.static(path.join(__dirname, '/public')))
 
+app.use((err, req, res, next) => {
+  res.status(err.statusCode || 500).json({
+    status: err.status || 'error',
+    message: err.message || 'Internal Server Error'
+  });
+});
+
+// app.use('/auth', require('./routes/index')) 
+// app.get('/login' , (req,res)=>{
 
 connectDB()
 

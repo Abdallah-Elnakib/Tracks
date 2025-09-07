@@ -7,11 +7,13 @@ const {newPassword} = require('./controllers/newPasswordController')
 const {UsersData} = require('./models/users')
 
 
-app.post('/login', login)
-app.post('/register', register)
+app.post('/auth/login', login)
+app.post('/auth/register', register)
 app.post('/logout', logout)
 app.post('/send-otp',sendOtp)
 app.post('/new-password',newPassword)
+
+
 
 app.post('/', async(req,res)=>{
     const username = req.headers.username;

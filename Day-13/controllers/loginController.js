@@ -20,15 +20,15 @@ const login = async(req,res) => {
         email: getUser.email
     });
 
-    if (alreadyHaveToken.createdAt.getTime() + (30 * 1000) > Date.now()) {
-        return res.json({message: "Already Logged In"})
-    }
+    // if (alreadyHaveToken.createdAt.getTime() + (30 * 1000) > Date.now()) {
+    //     return res.json({message: "Already Logged In"})
+    // }
 
     // console.log("AlreadyHaveToken", alreadyHaveToken);
 
-    // if (alreadyHaveToken) {
-    //     return res.json({message: "Already Logged In"})
-    // }
+    if (alreadyHaveToken) {
+        return res.json({message: "Already Logged In"})
+    }
 
     const addToken = new tokenData({
         email : getUser.email,
