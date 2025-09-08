@@ -77,11 +77,20 @@ app.use(express.json());
 
 // إعداد الـ session
 app.use(session({
-  secret: "mySecretKey123",   // مفتاح التشفير (لازم يبقى قوي)
+  secret : process.env.SESSION_SECRET,
+  resave : false,
+  saveUninitialized : false,
+
+}))
+
+
+
+app.use(session({
+  secret: process.env.SESSION_SECRET   // مفتاح التشفير (لازم يبقى قوي)
   resave: false,              // ميحفظش الجلسة لو مفيش تعديل
   saveUninitialized: false,   // ميحفظش جلسة فاضية
   cookie: {
-    maxAge: 1000 * 60 * 60,   // صلاحية الجلسة ساعة واحدة
+    maxAge: 1000 * 60 ,   // صلاحية الجلسة ساعة واحدة
     httpOnly: true,           // تمنع الوصول من JavaScript
     secure: false             // خليه true في production مع HTTPS
   }
@@ -126,3 +135,15 @@ app.post("/logout", (req, res) => {
 });
 
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
+
+
+
+
+req =  {
+  body : {},
+  session : { "token" : ""rwiauerhjyiopyo5ngfndg"},
+  cookies : {},
+  headers : {},
+}
+
+req.session.token = token
