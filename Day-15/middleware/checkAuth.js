@@ -3,7 +3,7 @@ const checkAuth = (req, res, next) => {
     if (!getToken) {
         return res.status(401).json({ message: "Unauthorized" });
     } else {
-        next();
+        return next();
     }
 }
 

@@ -11,17 +11,21 @@ const app = express();
 
 app.use(express.json())
 
-const ips = ['http://127.0.0.1:3000', "http://localhost:3000"];
+const ips = ['http://127.0.0.1:3000', "http://localhost:3000", "http://127.0.0.1:5500"];
 app.use(cors({
-    origin: (origin, callback) => {
-            console.log(origin);
-            if (ips.includes(origin)) {
+    origin: (ip, callback) => {
+        try {
+            console.log(ip);
+            if (!ip || ips.includes(ip)) {
                 callback(null, true);
             }
             else {
                 callback("Not allowed by CORS");
             }
-
+        }
+        catch (error) {
+            console.log(error);
+        }
         
     }
 }))
@@ -75,6 +79,7 @@ app.get('/:username', checkAuth, async (req, res) => {
     }
     res.json(getUser)
 })
+
 
 
 mongoose.connection.once('connected', () => {
