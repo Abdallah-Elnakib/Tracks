@@ -1,0 +1,128 @@
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  // مثال بسيط للتوضيح
+  if (email === "test@test.com" && password === "123456") {
+    // نعمل توليد للتوكن
+    const token = jwt.sign(
+      { email: email, role: "user" }, // البيانات اللي جوة التوكن (Payload)
+      "mySecretKey",                  // المفتاح السري (Secret)
+      { expiresIn: "1h" }             // مدة صلاحية التوكن
+    );
+
+    res.json({ token });
+  } else {
+    res.status(401).json({ message: "Invalid credentials" });
+  }
+});
+
+
+function authMiddleware(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  if (!token) return res.status(401).json({ message: "Token required" });
+
+  jwt.verify(token, "mySecretKey", (err, user) => {
+    if (err) return res.status(403).json({ message: "Invalid token" });
+
+    req.user = user; 
+    next();
+  });
+}
+
+
+
+res.cookie('token', token, {
+        httpOnly: true,
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        sameSite: "strict",
+        secure: process.env.NODE_ENV !== 'development', // true in production, false in development
+    })
+
+
+res.cookie("token", token, {
+            httpOnly: true,
+            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 أيام
+            sameSite: "lax",                 // بدل strict عشان التجربة
+            secure: false,                   // خليه false وانت على localhost
+        });
+
+
+const allowedOrigins = [
+  "http://127.0.0.1:3000",
+  "http://localhost:3000",
+  "https://myfrontend.com"
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
+
+
+
+const express = require("express");
+const session = require("express-session");
+
+const app = express();
+
+app.use(express.json());
+
+// إعداد الـ session
+app.use(session({
+  secret: "mySecretKey123",   // مفتاح التشفير (لازم يبقى قوي)
+  resave: false,              // ميحفظش الجلسة لو مفيش تعديل
+  saveUninitialized: false,   // ميحفظش جلسة فاضية
+  cookie: {
+    maxAge: 1000 * 60 * 60,   // صلاحية الجلسة ساعة واحدة
+    httpOnly: true,           // تمنع الوصول من JavaScript
+    secure: false             // خليه true في production مع HTTPS
+  }
+}));
+
+// 🔹 تسجيل الدخول
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+
+  if (email === "test@test.com" && password === "123456") {
+    const token = "jwt_or_any_token_here";
+
+    // نخزن التوكن في session السيرفر
+    req.session.token = token;
+
+    return res.json({ message: "تم تسجيل الدخول" });
+  }
+
+  res.status(401).json({ message: "بيانات غير صحيحة" });
+});
+
+// 🔹 التحقق من الجلسة
+function isAuthenticated(req, res, next) {
+  if (req.session.token) {
+    return next();
+  }
+  res.status(401).json({ message: "مطلوب تسجيل الدخول" });
+}
+
+// 🔹 بروفايل (محمية بالجلسة)
+app.get("/profile", isAuthenticated, (req, res) => {
+  res.json({ message: "مرحبا بيك", token: req.session.token });
+});
+
+// 🔹 تسجيل الخروج
+app.post("/logout", (req, res) => {
+  req.session.destroy(err => {
+    if (err) return res.status(500).json({ message: "خطأ في تسجيل الخروج" });
+    res.clearCookie("connect.sid"); // نمسح الكوكي اللي شايلة الـ session id
+    res.json({ message: "تم تسجيل الخروج" });
+  });
+});
+
+app.listen(3000, () => console.log("Server running on http://localhost:3000"));
