@@ -59,3 +59,14 @@ function authMiddleware(req, res, next) {
 
 
 -----------------------------------------------------------------------------------
+
+
+req = {
+  body : {},
+  cookies : {},
+  session : {},
+  headers : {},
+  user : {}
+}
+
+req.user = decoded
