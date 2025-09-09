@@ -8,7 +8,7 @@ const login = async (req, res) => {
         if (!usernameOrEmail || !password) {
             return res.status(400).json({ message: "All inputs are required" })
         }
-        const getUser = await usersData.findOne({ $or: [{ email: usernameOrEmail }, { username: usernameOrEmail }] }) // {}
+        const getUser = await usersData.findOne({ $or: [{ email: usernameOrEmail.toLowerCase() }, { username: usernameOrEmail.toLowerCase() }] }) // {}
         if (!getUser) {
             return res.status(400).json({ message: "Invalid username or email" })
         }
