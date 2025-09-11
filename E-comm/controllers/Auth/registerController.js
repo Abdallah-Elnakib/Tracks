@@ -38,8 +38,8 @@ const register = async (req, res) => {
             newUser = new usersData({
                 firstName,
                 lastName,
-                username : username.toLowerCase(),
-                email : email.toLowerCase(),
+                username: username.toLowerCase(),
+                email: email.toLowerCase(),
                 address,
                 password: hashPassword,
                 role
@@ -48,9 +48,9 @@ const register = async (req, res) => {
 
         const otp = Math.floor(1000000 + Math.random() * 9000000);
         const addOtp = new Otp(
-            { 
-                email, 
-                otp 
+            {
+                email,
+                otp
             });
         await addOtp.save();
         await SendEmailToUser(email, "Email Verification", `Your verification code is ${otp}`);

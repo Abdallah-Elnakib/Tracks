@@ -2,11 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const {connectDB} = require('./config/connDB');
 const authRouter = require('./router/authRouter');
-
-
+const {checkReq} = require('./middlewar/checkReq');
+const cors = require('cors')
 const app = express();
 app.use(express.json());
 
+app.use(cors())
+app.use(checkReq)
 
 connectDB()
 

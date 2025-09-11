@@ -23,17 +23,6 @@ app.use(session({
 
 
 app.use('/auth', authRouter)
-// app.use('/user')
-// app.use('/product')
-// app.use('/order')
-// let email = "abdallah.elnakib@gmail.com"
-// let checkEmail = email.split('@');
-// console.log(['gmail.com', 'yahoo.com','hotmail.com'].includes(checkEmail[1]))
-
-// let checkEmail = email.split('@');
-// if (!['gmail.com', 'yahoo.com', 'hotmail.com'].includes(checkEmail[1])) {
-//     console.log({ message: "Email must be a Gmail address" });
-// }
 
 
 

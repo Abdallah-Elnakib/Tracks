@@ -8,7 +8,9 @@ router.post('/login' , (req,res) => {
     if (!username || !password) {
         return res.status(400).json({error : 'Username and password are required'})
     }
-    res.json({message : 'Login successful'})
+    // http://127.0.0.1:3000
+    // console.log(`${req.protocol}://${req.get('host')}`)
+    return res.json({message : 'Login successful'})
 })
 
 

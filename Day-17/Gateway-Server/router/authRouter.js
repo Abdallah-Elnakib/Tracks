@@ -12,7 +12,9 @@ router.post('/login', (req, res) => {
         fetch('http://127.0.0.1:3000/auth/login', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "username": "abdallah",
+                "password": "abdallah"
             },
             body: JSON.stringify({ username, password })
         })
