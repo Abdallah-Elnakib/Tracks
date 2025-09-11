@@ -1,6 +1,6 @@
-const { usersData } = require("../../models/users");
-const {Otp} = require('../../models/Otp')
-const {SendEmailToUser} = require('../../utils/mailSender')
+const { usersData } = require("../models/users");
+const {Otp} = require('../models/Otp')
+const {SendEmailToUser} = require('../utils/mailSender')
 const sendotp = async (req, res) => {
     try {
         const { email } = req.body;

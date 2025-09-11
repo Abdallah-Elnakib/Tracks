@@ -1,9 +1,10 @@
-const { usersData } = require('../../models/users');
+const { usersData } = require('../models/users');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const login = async (req, res) => {
     try {
+        console.log('Login Endpoint')
         const { usernameOrEmail, password } = req.body;
         if (!usernameOrEmail || !password) {
             return res.status(400).json({ message: "All inputs are required" })
@@ -22,9 +23,9 @@ const login = async (req, res) => {
         }
 
         const token = jwt.sign({ firstName: getUser.firstName, lastName: getUser.lastName, email: getUser.email, role: getUser.role }, process.env.JWT_SECRET, { expiresIn: "1m" });
-        req.session.token = token;
+        
 
-        return res.json({ message: 'login done' })
+        return res.json({ message: 'login done' , token: token})
     }
     catch (error) {
         console.log(error)

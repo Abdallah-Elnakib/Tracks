@@ -1,5 +1,5 @@
-const { Otp } = require('../../models/Otp')
-const {usersData} = require('../../models/users')
+const { Otp } = require('../models/Otp')
+const {usersData} = require('../models/users')
 const jwt = require('jsonwebtoken');
 const verified = async (req, res) => {
     try {
@@ -25,9 +25,9 @@ const verified = async (req, res) => {
         await usersData.findOneAndUpdate({ email: email }, { status: true });
         const token = jwt.sign({firstName: checkUser.firstName, lastName: checkUser.lastName, email: checkUser.email, role: checkUser.role}, process.env.JWT_SECRET, {expiresIn: "1m"});
         // sing({}, key, { expiresIn: "1m" });
-        req.session.token = token;
+        
 
-        return res.json({ message: "Account verified successfully" });
+        return res.json({ message: "Account verified successfully" , token: token });
     }
     catch (error) {
         return res.status(500).json({ message: error.message })

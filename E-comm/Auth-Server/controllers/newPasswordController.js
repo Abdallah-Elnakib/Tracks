@@ -1,5 +1,5 @@
-const { Otp } = require('../../models/Otp')
-const { usersData } = require('../../models/users')
+const { Otp } = require('../models/Otp')
+const { usersData } = require('../models/users')
 const bcrypt = require('bcrypt')
 
 

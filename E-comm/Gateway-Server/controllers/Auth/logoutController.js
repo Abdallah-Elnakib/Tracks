@@ -1,4 +1,3 @@
-
 const logout = (req, res) => {
     try {
         req.session.destroy((err) => {

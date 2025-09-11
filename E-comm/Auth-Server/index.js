@@ -1,25 +1,17 @@
 const express = require('express');
-const session = require('express-session');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const { connectDB } = require('./config/connDB');
 const authRouter = require('./router/authRouter');
-
+const {checkReq} = require('./middleware/checkREQ')
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(checkReq)
+
 connectDB();
 
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        secure: false,
-        maxAge: 1000 * 60,
-        httpOnly: true
-    }
-}))
+
 
 
 app.use('/auth', authRouter)

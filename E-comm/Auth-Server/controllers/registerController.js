@@ -1,8 +1,8 @@
-const { usersData } = require('../../models/users');
+const { usersData } = require('../models/users');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { Otp } = require('../../models/Otp');
-const { SendEmailToUser } = require('../../utils/mailSender');
+const { Otp } = require('../models/Otp');
+const { SendEmailToUser } = require('../utils/mailSender');
 
 const register = async (req, res) => {
     try {
