@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+
+<body>
+    <h2>Hello, <span id="user"></span></h2>
+
+    <div>
+        <input type="text" id="toUser" placeholder="Recipient Name">
+        <input type="text" id="message" placeholder="Write your message">
+        <button id="sendBtn">Send</button>
+        <button id="logout">Logout</button>
+    </div>
+
+    <div id="chatBox"
+        style="margin-top:20px; border:1px solid #ccc; padding:10px; width:300px; height:200px; overflow:auto;"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/client.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="username" required>
+        <input type="password" id="password" placeholder="password" required>
+        <button type="submit">Login</button>
+        <a href="/register">Register</a>
+        <a href="/forgot-password">Forgot Password</a>
+    </form>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            fetch('http://127.0.0.1:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+                .then(res => res.json())
+                .then((finalRes) => {
+                    if (finalRes.message === "login done") {
+                        localStorage.setItem("username", username);
+                        window.location.href = "/chat";
+                    }
+                    else {
+                        alert(finalRes.message);
+                    }
+                })
+                .catch((err) => {
+                    alert(err)
+                })
+
+
+        }); 
+    </script>
+</body>
+
+</html>
